@@ -16,7 +16,7 @@ export default function Header() {
         alt=""
       />
 
-      <span class="navbar-text" style={{ marginLeft: '1%' }}>
+      <span className="navbar-text" style={{ marginLeft: '1%' }}>
         Take advantage of your friends' pizza orders
       </span>
       <ul className="navbar-nav ml-auto navbar-right">
