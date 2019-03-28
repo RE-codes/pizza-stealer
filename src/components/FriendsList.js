@@ -26,12 +26,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      fetchFriends
-    },
-    dispatch
-  );
+  return bindActionCreators({ fetchFriends }, dispatch);
 }
 
 export default connect(
