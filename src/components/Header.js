@@ -1,6 +1,6 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -16,7 +16,7 @@ export default function Header() {
         alt=""
       />
 
-      <span class="navbar-text" style={{ marginLeft: '1%' }}>
+      <span className="navbar-text" style={{ marginLeft: '1%' }}>
         Take advantage of your friends' pizza orders
       </span>
       <ul className="navbar-nav ml-auto navbar-right">
@@ -28,17 +28,17 @@ export default function Header() {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
 const headerStyle = {
   backgroundColor: '#3a4351',
   color: 'white'
-}
+};
 
 const navItem = {
   margin: '10px',
   backgroundColor: 'white',
   padding: '8px',
   borderRadius: '5%'
-}
+};
