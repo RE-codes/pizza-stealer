@@ -19,10 +19,10 @@ class App extends Component {
             }}
           />{' '}
           <Switch>
-            <Route exact path={['/friends', '/']} component={FriendsList} />{' '}
-            <Route exact path={'/stealpizza'} component={StealPizza} />{' '}
-          </Switch>{' '}
-        </div>{' '}
+            <Route exact path={['/friends', '/']} component={FriendsList} />
+            <Route exact path={'/stealpizza'} component={StealPizza} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
