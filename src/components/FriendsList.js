@@ -7,16 +7,26 @@ class FriendsList extends Component {
   componentDidMount() {
     this.props.fetchFriends();
   }
+
   render() {
     return (
-      <div>
-        List of all contacts will go here! 
-      </div>
+      <section className="full-page padding-lg">
+        <div className="container"> 
+          <ul className="row">
+            {this.renderFriends()}
+          </ul>
+        </div>
+      </section>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return { friends: state.friends }
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchFriends }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(FriendsList);
+export default connect(mapStateToProps, mapDispatchToProps)(FriendsList);

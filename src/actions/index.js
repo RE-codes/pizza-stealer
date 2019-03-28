@@ -7,6 +7,8 @@ const ROOT_URL = 'https://my-json-server.typicode.com/marielklem/practice-api/db
 export function fetchFriends() {
   const request = axios.get(`${ROOT_URL}`);
 
+  console.log("Request", request)
+
   return {
     type: FETCH_FRIENDS,
     payload: request
