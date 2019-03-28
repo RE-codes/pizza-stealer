@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchFriends } from '../actions';
-import PizzaDetail from './PizzaDetail';
 
 class FriendsList extends Component {
   componentDidMount() {
@@ -37,14 +36,7 @@ class FriendsList extends Component {
               <br />
               <span className="fa fa-phone fa-fw text-muted" title="" />
               <span className="text-muted small">{friends.phone}</span>
-              <button onClick={onClickButton} className="rounded">
-                <img
-                  src="https://i0.wp.com/www.pizzajerkpdx.com/wp-content/themes/pizza-jerk-theme/assets/images/slice.png?w=600"
-                  width="30"
-                  height="30"
-                  alt=""
-                />
-              </button>
+
             </div>
           </div>
         </li>
@@ -56,21 +48,11 @@ class FriendsList extends Component {
     return (
       <section className="full-page padding-lg">
         <div className="container"> {this.renderFriends()} </div>
-        {/* <PizzaDetail /> */}
       </section>
     );
   }
 }
 
-const onClickButton = e => {
-  e.preventDefault();
-  console.log('hey!');
-  return (
-    <div>
-      <PizzaDetail />
-    </div>
-  );
-};
 function mapStateToProps(state) {
   return {
     friends: state.friends
