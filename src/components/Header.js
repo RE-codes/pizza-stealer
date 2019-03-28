@@ -21,12 +21,12 @@ export default function Header() {
       >
         Take advantage of your friends ' pizza orders{' '}
       </span>{' '}
-      <form class="form-inline ml-auto navbar-right">
+      <form className="form-inline ml-auto navbar-right">
         <Link to="/friends">
-          <button class="btn btn-sm btn-light"> Friends {' '}</button>
+          <button className="btn btn-sm btn-light"> Friends {' '}</button>
         </Link>
         <Link to="/stealpizza">
-          <button class="btn btn-sm btn-light"> Steal Pizza </button>
+          <button className="btn btn-sm btn-light"> Steal Pizza </button>
         </Link>
 
       </form>
@@ -35,15 +35,3 @@ export default function Header() {
     </nav>
   );
 }
-
-const headerStyle = {
-  backgroundColor: '#3a4351',
-  color: 'white',
-};
-
-const buto = {
-  margin: '10px',
-  backgroundColor: 'white',
-  padding: '8px',
-  borderRadius: '5%'
-};
