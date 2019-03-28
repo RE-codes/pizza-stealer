@@ -16,7 +16,7 @@ class FriendsList extends Component {
         <li className="list-group-item">
         <div className="row w-100">
             <div className="col-12 col-sm-6 col-md-3 px-0">
-                <img src={friends.imgUrl} style={{objectFit: "cover"}}alt="Friend's Picture" class="rounded-circle mx-auto d-block img-fluid" width="100px" height="100px"/>
+                <img src={friends.imgUrl} style={{objectFit: "cover"}}alt="Friend's Picture" class="rounded-circle mx-auto d-block img-fluid contactsImg" width="100px" height="100px"/>
             </div>
             <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
                 <label className="name lead">{friends.name}</label>

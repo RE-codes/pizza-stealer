@@ -37,7 +37,7 @@ export default function Header() {
 
 const headerStyle = {
   backgroundColor: '#3a4351',
-  color: 'white'
+  color: 'white',
 };
 
 const navItem = {
