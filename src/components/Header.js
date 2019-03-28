@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <nav
-      className="navbar navbar-dark fixed-top navbar-expand-lg"
-      style={headerStyle}
-    >
+    <nav className='navbar navbar-dark bg-dark mb-3 py-0'>
+    <div className="container">
       <span className="navbar-brand mb-0 h1"> PIZZA STEALER </span>{' '}
       <img
         src="https://static.thenounproject.com/png/320887-200.png"
@@ -23,14 +21,17 @@ export default function Header() {
       >
         Take advantage of your friends ' pizza orders{' '}
       </span>{' '}
-      <ul className="navbar-nav ml-auto navbar-right">
-        <li className="nav-item" style={navItem}>
-          <Link to="/friends"> Friends </Link>{' '}
-        </li>{' '}
-        <li className="nav-item" style={navItem}>
-          <Link to="/stealpizza"> Steal Pizza </Link>{' '}
-        </li>{' '}
-      </ul>{' '}
+      <form class="form-inline ml-auto navbar-right">
+        <Link to="/friends">
+          <button class="btn btn-sm btn-light"> Friends {' '}</button>
+        </Link>
+        <Link to="/stealpizza">
+          <button class="btn btn-sm btn-light"> Steal Pizza </button>
+        </Link>
+
+      </form>
+
+      </div>
     </nav>
   );
 }
@@ -40,7 +41,7 @@ const headerStyle = {
   color: 'white',
 };
 
-const navItem = {
+const buto = {
   margin: '10px',
   backgroundColor: 'white',
   padding: '8px',
