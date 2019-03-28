@@ -12,12 +12,9 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <div
-            className="container"
-            style={{
-              marginTop: '100px'
-            }}
-          />{' '}
+          <div className="container"
+            style={{ marginTop: '100px' }}
+          />
           <Switch>
             <Route exact path={['/friends', '/']} component={FriendsList} />
             <Route exact path={'/stealpizza'} component={StealPizza} />
