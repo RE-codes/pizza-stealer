@@ -18,26 +18,25 @@ class FriendsList extends Component {
             <div className="col-12 col-sm-6 col-md-3 px-0">
               <img
                 src={friends.imgUrl}
-                style={{ objectFit: 'cover' }}
-                alt="Friend's Picture"
-                class="rounded-circle mx-auto d-block img-fluid"
-                width="100px"
-                height="100px"
-              />
+                style={{
+                  objectFit: 'cover'
+                }}
+                alt="your friend"
+                className="rounded-circle mx-auto d-block img-fluid contactsImg"
+                />
             </div>
             <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-              <label className="name lead">{friends.name}</label>
-              <br />
-              <span
-                className="fa fa-map-marker-alt fa-fw text-muted"
-                title=""
-              />
-              <span className="text-muted">{friends.address}</span>
-              <br />
-              <span className="fa fa-phone fa-fw text-muted" title="" />
-              <span className="text-muted small">{friends.phone}</span>
-            </div>
-          </div>
+              <label className="name lead"> {friends.name} </label> <br />
+              <span className="fa fa-map-marker-alt fa-fw text-muted" title="">
+                {' '}
+              </span>{' '}
+              <span className="text-muted"> {friends.address} </span> <br />
+              <span className="fa fa-phone fa-fw text-muted" title="">
+                {' '}
+              </span>{' '}
+              <span className="text-muted small"> {friends.phone} </span>{' '}
+            </div>{' '}
+          </div>{' '}
         </li>
       );
     });
@@ -46,7 +45,7 @@ class FriendsList extends Component {
   render() {
     return (
       <section className="full-page padding-lg">
-        <div className="container"> {this.renderFriends()} </div>
+        <div className="container"> {this.renderFriends()} </div>{' '}
       </section>
     );
   }
@@ -59,7 +58,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchFriends }, dispatch);
+  return bindActionCreators(
+    {
+      fetchFriends
+    },
+    dispatch
+  );
 }
 
 export default connect(
