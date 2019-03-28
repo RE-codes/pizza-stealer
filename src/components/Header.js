@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -18,10 +19,10 @@ export default function Header() {
       </span>
       <ul className="navbar-nav ml-auto navbar-right">
         <li className="nav-item" style={navItem}>
-          Friends
+          <Link to="/friends">Friends</Link>
         </li>
         <li className="nav-item" style={navItem}>
-          Steal Pizza
+          <Link to="/stealpizza">Steal Pizza</Link>
         </li>
       </ul>
     </nav>
@@ -34,5 +35,8 @@ const headerStyle = {
 }
 
 const navItem = {
-  margin: '10px'
+  margin: '10px',
+  backgroundColor: 'white',
+  padding: '8px',
+  borderRadius: '5%'
 }
