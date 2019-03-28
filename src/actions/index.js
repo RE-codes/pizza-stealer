@@ -1,14 +1,12 @@
 import axios from 'axios';
 
 export const FETCH_FRIENDS = 'fetch_friends';
-export const FETCH_PIZZA = 'FETCH_PIZZA';
+export const FETCH_PIZZA = 'fetch_pizza';
 
 const ROOT_URL = `https://my-json-server.typicode.com/marielklem/practice-api/db`;
 
 export function fetchFriends() {
   const request = axios.get(`${ROOT_URL}`);
-
-  console.log('Request', request);
 
   return {
     type: FETCH_FRIENDS,
@@ -16,10 +14,10 @@ export function fetchFriends() {
   };
 }
 
-const pizzaRootUrl = `https://order.dominos.com/orderstorage/GetTrackerData?Phone=`;
+const pizzaRootUrl = `https://my-json-server.typicode.com/marielklem/pizza-api/db`;
 
 export const fetchPizza = phone => {
-  const request = axios.get(`${pizzaRootUrl}${phone}`);
+  const request = axios.get(`${pizzaRootUrl}`);
 
   return {
     type: FETCH_PIZZA,

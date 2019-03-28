@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -8,11 +9,24 @@ class FriendsList extends Component {
     this.props.fetchFriends();
   }
 
+  renderFriends() {
+    console.log(this.props.friends)
+    return _.map(this.props.friends, friends => {
+      return (
+        <div className="card card-body mb-3">
+        <ul className="row">
+          <h1> {friends.name} </h1>
+          </ul>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <section className="full-page padding-lg">
         <div className="container">
-          <ul className="row"> This is my friends list</ul>
+          {this.renderFriends()}
         </div>
       </section>
     );
@@ -26,12 +40,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      fetchFriends
-    },
-    dispatch
-  );
+  return bindActionCreators({ fetchFriends }, dispatch);
 }
 
 export default connect(
