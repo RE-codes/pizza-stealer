@@ -10,12 +10,12 @@ class FriendsList extends Component {
   }
 
   renderFriends() {
-    console.log(this.props.friends)
+    console.log(this.props.friends);
     return _.map(this.props.friends, friends => {
       return (
         <div className="card card-body mb-3">
-        <ul className="row">
-          <h1> {friends.name} </h1>
+          <ul className="row">
+            <h1> {friends.name} </h1>
           </ul>
         </div>
       );
@@ -25,9 +25,7 @@ class FriendsList extends Component {
   render() {
     return (
       <section className="full-page padding-lg">
-        <div className="container">
-          {this.renderFriends()}
-        </div>
+        <div className="container">{this.renderFriends()}</div>
       </section>
     );
   }
