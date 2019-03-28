@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-import { fetchFriends } from "../actions";
+import { bindActionCreators } from 'redux';
+import { fetchFriends } from '../actions';
 
 class FriendsList extends Component {
   componentDidMount() {
@@ -11,22 +11,30 @@ class FriendsList extends Component {
   render() {
     return (
       <section className="full-page padding-lg">
-        <div className="container"> 
-          <ul className="row">
-            {this.renderFriends()}
-          </ul>
+        <div className="container">
+          <ul className="row"> This is my friends list</ul>
         </div>
       </section>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
-  return { friends: state.friends }
+  return {
+    friends: state.friends
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchFriends }, dispatch)
+  return bindActionCreators(
+    {
+      fetchFriends
+    },
+    dispatch
+  );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FriendsList);
