@@ -4,17 +4,19 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <nav className="navbar fixed-top navbar-expand-lg" style={headerStyle}>
+    <nav
+      className="navbar navbar-dark fixed-top navbar-expand-lg"
+      style={headerStyle}
+    >
       <span className="navbar-brand mb-0 h1">PIZZA STEALER</span>
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://static.thenounproject.com/png/320887-200.png"
-          width="30"
-          height="30"
-          alt=""
-        />
-      </a>
-      <span class="navbar-text">
+      <img
+        src="https://static.thenounproject.com/png/320887-200.png"
+        width="50"
+        height="50"
+        alt=""
+      />
+
+      <span class="navbar-text" style={{ marginLeft: '1%' }}>
         Take advantage of your friends' pizza orders
       </span>
       <ul className="navbar-nav ml-auto navbar-right">
