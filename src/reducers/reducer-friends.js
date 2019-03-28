@@ -4,7 +4,7 @@ import { FETCH_PIZZA } from '../actions';
 export default function(state = [], action) {
   switch (action.type) {
     case FETCH_FRIENDS:
-      return;
+      return action.payload.data.contactList;
     case FETCH_PIZZA:
       return [
         ...state,

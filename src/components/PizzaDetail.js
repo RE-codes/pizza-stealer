@@ -4,14 +4,18 @@ export class PizzaDetail extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-md-7" style={{ float: 'right' }}>
-          <h2>Time to Intercept Pizza!</h2>
+        <div
+          className="col-md-6 offset-md-1 shadow-lg rounded"
+          style={{ float: 'right' }}
+        >
+          <h2 style={{ backgroundColor: '#3a4351', color: 'white' }}>
+            Time to Intercept Pizza!
+          </h2>
           <p style={pizzaNarrativeStyle}>
-            Charlie is on his way to your friend Sam's house with a large
-            pepperoni pizza and a side of garlic knots. We estimate the goods
-            will be delivered to 111 Rose Street in approximately 15-19 minutes,
-            so head out now to intercept Charlie and conveniently arrive in time
-            for dinner!
+            {driverName} is on his way to your friend {friend}'s house with{' '}
+            {pizzaOrder}. We estimate the goods will be delivered to{' '}
+            {friendAddress} in approximately 15-19 minutes, so head out now to
+            intercept {driverName} and conveniently arrive in time for dinner!
           </p>
         </div>
         <div className="col-md-4">
@@ -33,8 +37,15 @@ const pizzaNarrativeStyle = {
   color: 'black',
   display: 'inline-block',
   verticalAlign: 'middle',
-  marginTop: '2%',
-  overflowWrap: 'normal'
+  marginTop: '3%',
+  overflowWrap: 'normal',
+  fontSize: '30px'
 };
+
+//harded coded values to be relaced with data from the api
+const driverName = 'Alex';
+const friend = 'Sam';
+const pizzaOrder = 'large extra cheese pepperoni pizza and garlic knots';
+const friendAddress = '111 Rose Street';
 
 export default PizzaDetail;
