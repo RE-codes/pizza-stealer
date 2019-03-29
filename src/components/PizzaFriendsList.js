@@ -64,7 +64,7 @@ class PizzaFriendsList extends Component {
 
     pizzaFriendsCopy.map((friend, index, array) => {
       friend.showPizzaDetail = false;
-      if (friend.id == buttonId) {
+      if (friend.id === parseInt(buttonId)) {
         friend.showPizzaDetail = !friend.showPizzaDetail;
         //overwriting friend
         array[index] = friend;
