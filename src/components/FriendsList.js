@@ -12,7 +12,7 @@ class FriendsList extends Component {
   renderFriends() {
     return _.map(this.props.friends, friends => {
       return (
-        <li className="list-group-item">
+        <li className="list-group-item" key={friends.id}>
           <div className="row w-100">
             <div className="col-12 col-sm-6 col-md-3 px-0">
               <img
