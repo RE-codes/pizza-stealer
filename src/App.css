@@ -30,3 +30,7 @@ button {
   borderRadius: 5%
 }
 
+.navbar {
+  min-height: 80px;
+}
+
