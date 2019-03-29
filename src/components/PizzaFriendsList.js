@@ -47,18 +47,45 @@ class PizzaFriendsList extends Component {
   renderPizzaFriends = () => {
     return this.state.pizzaFriends.map(pizzaFriend => {
       return (
-        <div>
-          <h1>This is where the pizza friends live.</h1>
-          <h4>{pizzaFriend.name}</h4>
-          <p>{pizzaFriend.address}</p>
-          <p>{pizzaFriend.phone}</p>
-        </div>
+        <li className="list-group-item">
+          <div className="row w-100">
+            {/* <div className="col-12 col-sm-6 col-md-3 px-0" /> */}
+            <div className="col-6 col-sm-6 col-md-9 text-center text-sm-left">
+              <label className="name lead"> {pizzaFriend.name} </label>
+              <span className="fa fa-map-marker-alt fa-fw text-muted" title="">
+                {' '}
+              </span>{' '}
+              <span className="text-muted"> {pizzaFriend.address} </span>
+              <span className="fa fa-phone fa-fw text-muted" title="">
+                {' '}
+              </span>{' '}
+              <span className="text-muted small"> {pizzaFriend.phone} </span>{' '}
+              <button onClick={onClickButton} className="rounded">
+                STEAL
+                <img
+                  src="https://i0.wp.com/www.pizzajerkpdx.com/wp-content/themes/pizza-jerk-theme/assets/images/slice.png?w=600"
+                  width="30"
+                  height="30"
+                  alt=""
+                  style={{ float: 'right' }}
+                />
+              </button>
+            </div>{' '}
+          </div>{' '}
+        </li>
       );
     });
   };
 
   render() {
-    return <div>{this.renderPizzaFriends()}</div>;
+    return (
+      <div className="container">
+        <div>
+          <h3 className="text-left">Friends with Active Pizza Orders</h3>
+        </div>
+        <div>{this.renderPizzaFriends()}</div>
+      </div>
+    );
   }
 }
 
@@ -69,6 +96,10 @@ const mapStateToProps = state => {
   };
 };
 
+const onClickButton = e => {
+  e.preventDefault();
+  console.log('hey!');
+};
 // const mapDispatchtoProps = dispatch => {
 //   return bindActionCreators({ fetchPizza }, dispatch);
 // };
