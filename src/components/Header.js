@@ -26,7 +26,7 @@ export default function Header() {
           <button className="btn btn-sm btn-light"> Friends {' '}</button>
         </Link>
         <Link to="/stealpizza">
-          <button className="btn btn-sm btn-light"> Steal Pizza </button>
+          <button className="btn btn-sm btn-light"><i class="fas fa-pizza-slice"></i>  Steal Pizza </button>
         </Link>
 
       </form>
