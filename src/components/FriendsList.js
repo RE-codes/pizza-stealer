@@ -57,6 +57,7 @@ class FriendsList extends Component {
 
 function mapStateToProps(state) {
   return {
+    key: state.friends.id,
     friends: state.friends
   };
 }
