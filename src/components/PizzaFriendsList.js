@@ -4,8 +4,8 @@ import PizzaDetail from './PizzaDetail';
 
 class PizzaFriendsList extends Component {
   state = {
-    pizzaFriends: [],
-    showPizzaDetail: false
+    pizzaFriends: []
+    //showThisPizzaFriend: {}
   };
 
   componentDidMount() {
@@ -41,16 +41,40 @@ class PizzaFriendsList extends Component {
         friend.timeOrdered =
           data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.StartTime;
 
-        this.setState({ pizzaFriends: [...this.state.pizzaFriends, friend] });
+        friend.showPizzaDetail = false;
+
+        this.setState({
+          pizzaFriends: [...this.state.pizzaFriends, friend]
+        });
       }
     });
   };
 
   toggleShowClick = e => {
-    this.setState({
-      showPizzaDetail: !this.state.showPizzaDetail
+    console.log('this.state:', this.state);
+
+    const buttonId = e.currentTarget.getAttribute('id');
+
+    console.log('e.currentTarget:', e.currentTarget);
+    console.log('buttonId:', typeof buttonId);
+    console.log('this.state.pizzaFriends:', this.state.pizzaFriends);
+
+    // make a copy of the pizzaFrind
+    const pizzaFriendsCopy = [...this.state.pizzaFriends];
+
+    pizzaFriendsCopy.map((friend, index, array) => {
+      if (friend.id == buttonId) {
+        friend.showPizzaDetail = !friend.showPizzaDetail;
+        //overwriting friend
+        array[index] = friend;
+      }
+      return array;
     });
-    console.log('hey!');
+
+    // setState of updated friend
+    this.setState({
+      pizzaFriends: pizzaFriendsCopy
+    });
   };
 
   renderPizzaFriends = () => {
@@ -70,7 +94,11 @@ class PizzaFriendsList extends Component {
               <span className="text-muted small"> {pizzaFriend.phone} </span>{' '}
             </div>
             <div className="col-3">
-              <button onClick={this.toggleShowClick} className="rounded">
+              <button
+                onClick={this.toggleShowClick.bind(this)}
+                className="rounded"
+                id={pizzaFriend.id}
+              >
                 STEAL
                 <img
                   src="https://i0.wp.com/www.pizzajerkpdx.com/wp-content/themes/pizza-jerk-theme/assets/images/slice.png?w=600"
@@ -88,25 +116,30 @@ class PizzaFriendsList extends Component {
   };
 
   render() {
+    const theRightPizzaDetail = this.state.pizzaFriends.find(
+      pizzaFriend => pizzaFriend.showPizzaDetail === true
+    );
+    console.log('therghtpizadetial:', theRightPizzaDetail);
+    //console.log('right pizza id:', theRightPizzaDetail.id);
+
     return (
       <div className="container">
         <div>
           <h3 className="text-left">Friends with Active Pizza Orders</h3>
         </div>
         <div style={{ marginBottom: '60px' }}>{this.renderPizzaFriends()}</div>
-        {this.state.showPizzaDetail
-          ? this.state.pizzaFriends.map(pizzaFriend => (
-              <PizzaDetail
-                key={pizzaFriend.phone}
-                timeOrdered={pizzaFriend.timeOrdered}
-                deliveryDriver={pizzaFriend.deliveryDriver}
-                pizzaType={pizzaFriend.pizzaType}
-                friendAddress={pizzaFriend.address}
-                orderStatus={pizzaFriend.orderStatus}
-                friendName={pizzaFriend.name}
-              />
-            ))
-          : null}
+        {theRightPizzaDetail ? (
+          <PizzaDetail
+            key={theRightPizzaDetail.id}
+            id={theRightPizzaDetail.id}
+            timeOrdered={theRightPizzaDetail.timeOrdered}
+            deliveryDriver={theRightPizzaDetail.deliveryDriver}
+            pizzaType={theRightPizzaDetail.pizzaType}
+            friendAddress={theRightPizzaDetail.address}
+            orderStatus={theRightPizzaDetail.orderStatus}
+            friendName={theRightPizzaDetail.name}
+          />
+        ) : null}
       </div>
     );
   }
