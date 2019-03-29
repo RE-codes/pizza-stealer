@@ -24,12 +24,12 @@ export default function Header() {
         <form className="form-inline ml-auto navbar-right">
           <Link to="/friends">
             <button className="btn btn-sm btn-light">
-              <i class="fas fa-user-friends" /> Friends{' '}
+              <i className="fas fa-user-friends" /> Friends{' '}
             </button>
           </Link>
           <Link to="/stealpizza">
             <button className="btn btn-sm btn-light">
-              <i class="fas fa-pizza-slice" /> Steal Pizza{' '}
+              <i className="fas fa-pizza-slice" /> Steal Pizza{' '}
             </button>
           </Link>
         </form>
