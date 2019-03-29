@@ -10,7 +10,6 @@ class FriendsList extends Component {
   }
 
   renderFriends() {
-    console.log(this.props.friends);
     return _.map(this.props.friends, friends => {
       return (
         <li className="list-group-item">
