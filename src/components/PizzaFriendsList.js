@@ -63,6 +63,7 @@ class PizzaFriendsList extends Component {
     const pizzaFriendsCopy = [...this.state.pizzaFriends];
 
     pizzaFriendsCopy.map((friend, index, array) => {
+      friend.showPizzaDetail = false;
       if (friend.id == buttonId) {
         friend.showPizzaDetail = !friend.showPizzaDetail;
         //overwriting friend
