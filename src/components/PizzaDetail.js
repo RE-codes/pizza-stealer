@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export class PizzaDetail extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="row">
         <div
@@ -12,10 +13,12 @@ export class PizzaDetail extends Component {
             Time to Intercept Pizza!
           </h2>
           <p style={pizzaNarrativeStyle}>
-            {driverName} is on his way to your friend {friend}'s house with{' '}
-            {pizzaOrder}. We estimate the goods will be delivered to{' '}
-            {friendAddress} in approximately 15-19 minutes, so head out now to
-            intercept {driverName} and conveniently arrive in time for dinner!
+            {driverName}
+            is on his way to your friend {friend}
+            's house with {pizzaOrder}. We estimate the goods will be delivered
+            to {friendAddress} in approximately 15-19 minutes, so head out now
+            to intercept {driverName} and conveniently arrive in time for
+            dinner!
           </p>
         </div>
         <div className="col-md-4">
