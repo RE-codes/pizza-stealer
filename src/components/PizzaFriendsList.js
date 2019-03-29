@@ -32,7 +32,7 @@ class PizzaFriendsList extends Component {
 
         friend.deliveryDriver =
           data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
-            .DriverName || null;
+            .DriverName || 'Charlie';
 
         friend.orderStatus =
           data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.OrderStatus;
@@ -51,15 +51,17 @@ class PizzaFriendsList extends Component {
         <li className="list-group-item">
           <div className="row w-100">
             <div className="col-6 col-sm-6 col-md-9 text-center text-sm-left">
-              <label className="name lead"> {pizzaFriend.name} </label>
+              <label className="name lead mr-1"> {pizzaFriend.name} </label>
               <span className="fa fa-map-marker-alt fa-fw text-muted" title="">
                 {' '}
               </span>{' '}
-              <span className="text-muted"> {pizzaFriend.address} </span>
+              <span className="text-muted mr-1"> {pizzaFriend.address} </span>
               <span className="fa fa-phone fa-fw text-muted" title="">
                 {' '}
               </span>{' '}
               <span className="text-muted small"> {pizzaFriend.phone} </span>{' '}
+            </div>
+            <div className="col-3">
               <button onClick={onClickButton} className="rounded">
                 STEAL
                 <img
@@ -84,16 +86,17 @@ class PizzaFriendsList extends Component {
           <h3 className="text-left">Friends with Active Pizza Orders</h3>
         </div>
         <div style={{ marginBottom: '60px' }}>{this.renderPizzaFriends()}</div>
-        <div>
-          {this.state.pizzaFriends.map(pizzaFriend => (
-            <PizzaDetail
-              key={pizzaFriend.phone}
-              timeOrdered={pizzaFriend.timeOrdered}
-              deliveryDriver={pizzaFriend.deliveryDriver}
-              pizzaType={pizzaFriend.pizzaType}
-            />
-          ))}
-        </div>
+        {this.state.pizzaFriends.map(pizzaFriend => (
+          <PizzaDetail
+            key={pizzaFriend.phone}
+            timeOrdered={pizzaFriend.timeOrdered}
+            deliveryDriver={pizzaFriend.deliveryDriver}
+            pizzaType={pizzaFriend.pizzaType}
+            friendAddress={pizzaFriend.address}
+            orderStatus={pizzaFriend.orderStatus}
+            friendName={pizzaFriend.name}
+          />
+        ))}
       </div>
     );
   }
