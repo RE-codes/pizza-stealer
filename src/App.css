@@ -16,6 +16,9 @@
 .App-link {
   color: #61dafb;
 }
+body {
+  padding-top: 80px;
+}
 
 .contactsImg {
   height: 100px;
