@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export class PizzaDetail extends Component {
   render() {
-    console.log(this.props);
+    console.log('this.props:', this.props);
+    const { deliveryDriver, friendName, pizzaType, friendAddress } = this.props;
     return (
       <div className="row">
         <div className="col-md-7 shadow-lg rounded" style={{ float: 'right' }}>
@@ -10,12 +11,11 @@ export class PizzaDetail extends Component {
             Time to Intercept Pizza!
           </h2>
           <p style={pizzaNarrativeStyle}>
-            {this.props.deliveryDriver} is on his way to your friend{' '}
-            {this.props.friendName}
-            's house with {this.props.pizzaType}. We estimate the goods will be
-            delivered to {this.props.friendAddress} in approximately 15-19
-            minutes, so head out now to intercept {this.props.deliveryDriver}{' '}
-            and conveniently arrive in time for dinner!
+            {deliveryDriver} is on his way to your friend {friendName}
+            's house with {pizzaType}. We estimate the goods will be delivered
+            to {friendAddress} in approximately 15-19 minutes, so head out now
+            to intercept {deliveryDriver} and conveniently arrive in time for
+            dinner!
           </p>
         </div>
         <div className="col-md-3 offset-md-2">
