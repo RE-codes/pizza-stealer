@@ -23,7 +23,7 @@ export default function Header() {
       </span>{' '}
       <form className="form-inline ml-auto navbar-right">
         <Link to="/friends">
-          <button className="btn btn-sm btn-light"> Friends {' '}</button>
+          <button className="btn btn-sm btn-light"><i class="fas fa-user-friends"></i>  Friends {' '}</button>
         </Link>
         <Link to="/stealpizza">
           <button className="btn btn-sm btn-light"><i class="fas fa-pizza-slice"></i>  Steal Pizza </button>
