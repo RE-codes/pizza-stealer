@@ -45,7 +45,12 @@ class FriendsList extends Component {
   render() {
     return (
       <section className="full-page padding-lg">
-        <div className="container"> {this.renderFriends()} </div>{' '}
+        <div className="container" style={{ marginTop: '75px' }}>
+          <div>
+            <h3 className="text-left">All Friends</h3>
+          </div>
+          <div>{this.renderFriends()} </div>{' '}
+        </div>{' '}
       </section>
     );
   }
