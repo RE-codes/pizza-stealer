@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-dark fixed-top bg-dark navbar-expand-lg mb-3 py-0">
+    <nav className="navbar navbar-dark fixed-top bg-dark navbar-expand-lg mb-3 py-1">
       <div className="container-fluid">
         <span className="navbar-brand mb-0 h1"> PIZZA STEALER </span>{' '}
         <img
@@ -19,7 +19,7 @@ export default function Header() {
             marginLeft: '1%'
           }}
         >
-          Take advantage of your friends ' pizza orders{' '}
+          Take advantage of your friends' online pizza orders{' '}
         </span>{' '}
         <form className="form-inline ml-auto navbar-right">
           <Link to="/friends">
