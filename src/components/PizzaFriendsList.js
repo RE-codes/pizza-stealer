@@ -18,35 +18,34 @@ class PizzaFriendsList extends Component {
     this.props.friends.filter(async friend => {
       // make api call
       const resp = await fetch(
-        `https://my-json-server.typicode.com/marielklem/pizza-api/db`
+        `https://my-json-server.typicode.com/marielklem/pizza/db`
       );
       const data = await resp.json();
+      data.Data.forEach(order => {
+        if (
+          order.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
+            .Phone === friend.phone
+        ) {
+          friend.pizzaType =
+            order.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.OrderDescription;
 
-      if (
-        data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
-          .Phone === friend.phone &&
-        data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
-          .OrderStatus !== 'Complete'
-      ) {
-        friend.pizzaType =
-          data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.OrderDescription;
+          friend.deliveryDriver =
+            order.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
+              .DriverName || 'Your driver';
 
-        friend.deliveryDriver =
-          data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus
-            .DriverName || 'Charlie';
+          friend.orderStatus =
+            order.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.OrderStatus;
 
-        friend.orderStatus =
-          data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.OrderStatus;
+          friend.timeOrdered =
+            order.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.StartTime;
 
-        friend.timeOrdered =
-          data.Envelope.Body.GetTrackerDataResponse.OrderStatuses.OrderStatus.StartTime;
+          friend.showPizzaDetail = false;
 
-        friend.showPizzaDetail = false;
-
-        this.setState({
-          pizzaFriends: [...this.state.pizzaFriends, friend]
-        });
-      }
+          this.setState({
+            pizzaFriends: [...this.state.pizzaFriends, friend]
+          });
+        }
+      });
     });
   };
 

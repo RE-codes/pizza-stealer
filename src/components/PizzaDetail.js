@@ -12,11 +12,13 @@ export class PizzaDetail extends Component {
             Time to Intercept Pizza!
           </h2>
           <p style={pizzaNarrativeStyle}>
-            {deliveryDriver} is on his way to your friend {friendName}
-            's house with {pizzaType}. We estimate the goods will be delivered
-            to {friendAddress} in approximately 15-19 minutes, so head out now
-            to intercept {deliveryDriver} and conveniently arrive in time for
-            dinner!
+            <strong>{deliveryDriver}</strong> is on their way to your friend{' '}
+            <strong>{friendName}</strong>
+            's house with <strong>{pizzaType}</strong>. We estimate the goods
+            will be delivered to <strong>{friendAddress}</strong> in
+            approximately 15-19 minutes, so head out now to intercept{' '}
+            <strong>{deliveryDriver}</strong> and conveniently arrive in time
+            for dinner!
           </p>
         </div>
         <div className="col-md-3 offset-md-2">
