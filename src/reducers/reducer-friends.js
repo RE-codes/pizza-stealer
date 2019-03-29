@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { FETCH_FRIENDS } from '../actions';
 
 export default function(state = [], action) {
