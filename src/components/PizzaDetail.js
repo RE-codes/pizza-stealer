@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 
 export class PizzaDetail extends Component {
   render() {
+    console.log('this.props:', this.props);
+    const { deliveryDriver, friendName, pizzaType, friendAddress } = this.props;
     return (
       <div className="row">
-        <div
-          className="col-md-6 offset-md-1 shadow-lg rounded"
-          style={{ float: 'right' }}
-        >
+        <div className="col-md-7 shadow-lg rounded" style={{ float: 'right' }}>
           <h2 style={{ backgroundColor: '#3a4351', color: 'white' }}>
             Time to Intercept Pizza!
           </h2>
           <p style={pizzaNarrativeStyle}>
-            {driverName} is on his way to your friend {friend}'s house with{' '}
-            {pizzaOrder}. We estimate the goods will be delivered to{' '}
-            {friendAddress} in approximately 15-19 minutes, so head out now to
-            intercept {driverName} and conveniently arrive in time for dinner!
+            {deliveryDriver} is on his way to your friend {friendName}
+            's house with {pizzaType}. We estimate the goods will be delivered
+            to {friendAddress} in approximately 15-19 minutes, so head out now
+            to intercept {deliveryDriver} and conveniently arrive in time for
+            dinner!
           </p>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3 offset-md-2">
           <img
             style={{ float: 'right' }}
             className="img-responsive"
@@ -38,14 +38,9 @@ const pizzaNarrativeStyle = {
   display: 'inline-block',
   verticalAlign: 'middle',
   marginTop: '3%',
+  marginRight: '5%',
   overflowWrap: 'normal',
-  fontSize: '30px'
+  fontSize: '27px'
 };
-
-//harded coded values to be relaced with data from the api
-const driverName = 'Alex';
-const friend = 'Sam';
-const pizzaOrder = 'large extra cheese pepperoni pizza and garlic knots';
-const friendAddress = '111 Rose Street';
 
 export default PizzaDetail;
