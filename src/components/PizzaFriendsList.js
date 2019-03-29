@@ -4,7 +4,8 @@ import PizzaDetail from './PizzaDetail';
 
 class PizzaFriendsList extends Component {
   state = {
-    pizzaFriends: []
+    pizzaFriends: [],
+    showPizzaDetail: false
   };
 
   componentDidMount() {
@@ -45,6 +46,13 @@ class PizzaFriendsList extends Component {
     });
   };
 
+  toggleShowClick = e => {
+    this.setState({
+      showPizzaDetail: !this.state.showPizzaDetail
+    });
+    console.log('hey!');
+  };
+
   renderPizzaFriends = () => {
     return this.state.pizzaFriends.map(pizzaFriend => {
       return (
@@ -62,7 +70,7 @@ class PizzaFriendsList extends Component {
               <span className="text-muted small"> {pizzaFriend.phone} </span>{' '}
             </div>
             <div className="col-3">
-              <button onClick={onClickButton} className="rounded">
+              <button onClick={this.toggleShowClick} className="rounded">
                 STEAL
                 <img
                   src="https://i0.wp.com/www.pizzajerkpdx.com/wp-content/themes/pizza-jerk-theme/assets/images/slice.png?w=600"
@@ -86,17 +94,19 @@ class PizzaFriendsList extends Component {
           <h3 className="text-left">Friends with Active Pizza Orders</h3>
         </div>
         <div style={{ marginBottom: '60px' }}>{this.renderPizzaFriends()}</div>
-        {this.state.pizzaFriends.map(pizzaFriend => (
-          <PizzaDetail
-            key={pizzaFriend.phone}
-            timeOrdered={pizzaFriend.timeOrdered}
-            deliveryDriver={pizzaFriend.deliveryDriver}
-            pizzaType={pizzaFriend.pizzaType}
-            friendAddress={pizzaFriend.address}
-            orderStatus={pizzaFriend.orderStatus}
-            friendName={pizzaFriend.name}
-          />
-        ))}
+        {this.state.showPizzaDetail
+          ? this.state.pizzaFriends.map(pizzaFriend => (
+              <PizzaDetail
+                key={pizzaFriend.phone}
+                timeOrdered={pizzaFriend.timeOrdered}
+                deliveryDriver={pizzaFriend.deliveryDriver}
+                pizzaType={pizzaFriend.pizzaType}
+                friendAddress={pizzaFriend.address}
+                orderStatus={pizzaFriend.orderStatus}
+                friendName={pizzaFriend.name}
+              />
+            ))
+          : null}
       </div>
     );
   }
@@ -109,10 +119,6 @@ const mapStateToProps = state => {
   };
 };
 
-const onClickButton = e => {
-  e.preventDefault();
-  console.log('hey!');
-};
 // const mapDispatchtoProps = dispatch => {
 //   return bindActionCreators({ fetchPizza }, dispatch);
 // };
