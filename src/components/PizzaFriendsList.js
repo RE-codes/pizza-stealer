@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PizzaDetail from './PizzaDetail';
 
 class PizzaFriendsList extends Component {
   state = {
@@ -49,7 +50,6 @@ class PizzaFriendsList extends Component {
       return (
         <li className="list-group-item">
           <div className="row w-100">
-            {/* <div className="col-12 col-sm-6 col-md-3 px-0" /> */}
             <div className="col-6 col-sm-6 col-md-9 text-center text-sm-left">
               <label className="name lead"> {pizzaFriend.name} </label>
               <span className="fa fa-map-marker-alt fa-fw text-muted" title="">
@@ -83,7 +83,17 @@ class PizzaFriendsList extends Component {
         <div>
           <h3 className="text-left">Friends with Active Pizza Orders</h3>
         </div>
-        <div>{this.renderPizzaFriends()}</div>
+        <div style={{ marginBottom: '60px' }}>{this.renderPizzaFriends()}</div>
+        <div>
+          {this.state.pizzaFriends.map(pizzaFriend => (
+            <PizzaDetail
+              key={pizzaFriend.phone}
+              timeOrdered={pizzaFriend.timeOrdered}
+              deliveryDriver={pizzaFriend.deliveryDriver}
+              pizzaType={pizzaFriend.pizzaType}
+            />
+          ))}
+        </div>
       </div>
     );
   }
